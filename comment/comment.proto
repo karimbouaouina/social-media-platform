@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package comment;
+
+// Define the CommentService with RPC methods
+service CommentService {
+  rpc CreateComment (CommentRequest) returns (CommentResponse);
+  rpc GetComment (CommentId) returns (CommentResponse);
+  rpc UpdateComment (CommentRequest) returns (CommentResponse);
+  rpc DeleteComment (CommentId) returns (CommentResponse);
+}
+// Define the CommentRequest
+message CommentRequest {
+  string id = 1;
+  string content = 2;
+  string postId = 3;
+  string userId = 4;
+}
+// Define the CommentResponse
+message CommentResponse {
+  string id = 1;
+  string content = 2;
+  string postId = 3;
+  string userId = 4;
+}
+
+message CommentId {
+  string id = 1;
+}

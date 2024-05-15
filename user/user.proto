@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package user;
+// Define the Post service
+service UserService {
+  rpc CreateUser (UserRequest) returns (UserResponse);
+  rpc GetUser (UserId) returns (UserResponse);
+  rpc UpdateUser (UserRequest) returns (UserResponse);
+  rpc DeleteUser (UserId) returns (UserResponse);
+}
+// Define the PostRequest
+message UserRequest {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string role = 4;
+}
+// Define the PostResponse
+message UserResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string role = 4;
+}
+
+message UserId {
+  string id = 1;
+}
